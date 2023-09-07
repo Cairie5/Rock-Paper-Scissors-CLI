@@ -48,7 +48,7 @@ To play the Rock, Paper, Scissors CLI game, follow these steps:
 1. Run the game by executing the cli.py script with your name as an argument:
 
 ```bash
-python cli.py <your_name>
+python3 cli.py <your_name>
 ```
 
 2. Follow the on-screen instructions to choose between rock, paper, or scissors. Enter your choice when prompted.

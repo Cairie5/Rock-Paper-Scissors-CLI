@@ -49,3 +49,5 @@ def main():
 # Check if the script is being run directly (not imported as a module)
 if __name__ == "__main__":
     main()  # Call the main function to start the game
+
+# this codes set up a command-line interface (CLI) for the Rock, Paper, Scissors game using argparse for command-line argument parsing and SQLAlchemy for database operations. It allows players to enter their name, play the game, and stores player information in a database. The game loop continues until the player chooses to quit by entering 'q'.

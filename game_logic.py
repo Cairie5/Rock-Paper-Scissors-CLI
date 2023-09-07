@@ -1,33 +1,24 @@
 # game_logic.py
-# Import necessary modules and functions from SQLAlchemy
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
-from sqlalchemy.orm import declarative_base, relationship
+import random  # Import the 'random' module to generate random choices
 
-# Create a base class for declarative class definitions
-Base = declarative_base()
+# Define a function to play a single round of the Rock, Paper, Scissors game
+def play_round(player_choice):
+    choices = ['rock', 'paper', 'scissors']  # List of possible choices
+    computer_choice = random.choice(choices)  # Randomly select the computer's choice
 
-# Define the Player class representing the 'players' table in the database
-class Player(Base):
-    __tablename__ = 'players'  # Table name in the database
-    id = Column(Integer, primary_key=True)  # Primary key column for player's unique ID
-    name = Column(String, unique=True)  # Column to store the player's name
+    # Determine the result of the round based on player and computer choices
+    if player_choice == computer_choice:
+        return "It's a tie!"  # If both choices are the same, it's a tie
+    elif (
+        (player_choice == 'rock' and computer_choice == 'scissors') or
+        (player_choice == 'paper' and computer_choice == 'rock') or
+        (player_choice == 'scissors' and computer_choice == 'paper')
+    ):
+        return "You win!"  # Player wins if they beat the computer's choice
+    else:
+        return "Computer wins!"  # Computer wins if none of the above conditions are met
 
-# Define the Game class representing the 'games' table in the database
-class Game(Base):
-    __tablename__ = 'games'  # Table name in the database
-    id = Column(Integer, primary_key=True)  # Primary key column for game's unique ID
-
-# Define the Move class representing the 'moves' table in the database
-class Move(Base):
-    __tablename__ = 'moves'  # Table name in the database
-    id = Column(Integer, primary_key=True)  # Primary key column for move's unique ID
-    player_id = Column(Integer, ForeignKey('players.id'))  # Foreign key referencing the player
-    game_id = Column(Integer, ForeignKey('games.id'))  # Foreign key referencing the game
-    choice = Column(String)  # Column to store the player's choice (rock, paper, scissors)
-
-# Create an SQLite database engine with the name 'game.db'
-engine = create_engine('sqlite:///game.db')
-
-# Create the database tables based on the class definitions (metadata)
-Base.metadata.create_all(engine)
-
+# Define a function to get the computer's random choice
+def get_computer_choice():
+    choices = ['rock', 'paper', 'scissors']  # List of possible choices
+    return random.choice(choices)  # Return a randomly chosen choice for the computer

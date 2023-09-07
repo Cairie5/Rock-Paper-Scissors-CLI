@@ -30,3 +30,4 @@ engine = create_engine('sqlite:///game.db')
 
 # Create the database tables based on the class definitions (metadata)
 Base.metadata.create_all(engine)
+

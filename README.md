@@ -65,4 +65,4 @@ game.db: The SQLite database file for storing player information and game histor
 ## Author
 The author of this script is Patience Wangari Muraguri.
 
-[LICENSE](https://github.com/LICENSE)
+[LICENSE](https://github.com/Cairie5/Rock-Paper-Scissors-CLI/blob/main/LICENSE)

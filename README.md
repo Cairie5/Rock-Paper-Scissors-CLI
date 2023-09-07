@@ -13,12 +13,15 @@ License
 
 ## Features
 Play Rock, Paper, Scissors against the computer in the command line.
+Record your game history in a SQLite database.
+Create or join existing games with your chosen player name.
+Easily extendable and customizable for additional features.
 
 ## Requirements
 Before you start, ensure you have met the following requirements:
 
-. Python 3.x installed on your system.
-. Pipenv for managing virtual environments (you can install it using pip).
+Python 3.x installed on your system.
+Pipenv for managing virtual environments (you can install it using pip).
 
 ## Installation
 Clone this repository to your local machine:

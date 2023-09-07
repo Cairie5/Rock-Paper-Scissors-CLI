@@ -50,6 +50,19 @@ python cli.py <your_name>
 
 2. Follow the on-screen instructions to choose between rock, paper, or scissors. Enter your choice when prompted.
 
-3. The game will display the result of each round.
+3. The game will display the result of each round and keep track of your game.
 
 4. To quit the game, enter 'q' when prompted for your choice.
+
+## Project Structure
+The project directory is organized as follows:
+
+cli.py: The main CLI script for playing the game.
+game_logic.py: Contains the game logic for playing rounds and determining the winner.
+models.py: Defines the database schema using SQLAlchemy.
+game.db: The SQLite database file for storing player information and game history.
+
+## Author
+The author of this script is Patience Wangari Muraguri.
+
+[LICENSE](https://github.com/LICENSE)

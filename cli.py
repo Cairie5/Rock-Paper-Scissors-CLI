@@ -49,4 +49,3 @@ def main():
 # Check if the script is being run directly (not imported as a module)
 if __name__ == "__main__":
     main()  # Call the main function to start the game
-c

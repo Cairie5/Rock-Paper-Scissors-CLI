@@ -1,34 +1,35 @@
 # models.py
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, DateTime
+# Import necessary modules and functions from SQLAlchemy
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
-from sqlalchemy.sql import func
 
+# Create a base class for declarative class definitions
 Base = declarative_base()
 
+# Define the Player class representing the 'players' table in the database
 class Player(Base):
-    __tablename__ = 'players'
-    id = Column(Integer, primary_key=True)
-    name = Column(String, unique=True)
-    wins = Column(Integer, default=0)  # New column to track wins
+    __tablename__ = 'players'  # Table name in the database
+    id = Column(Integer, primary_key=True)  # Primary key column for player's unique ID
+    name = Column(String, unique=True)  # Column to store the player's name
 
+# Define the Game class representing the 'games' table in the database
 class Game(Base):
-    __tablename__ = 'games'
-    id = Column(Integer, primary_key=True)
-    timestamp = Column(DateTime(timezone=True), server_default=func.now())  # Timestamp for game
-    player_id = Column(Integer, ForeignKey('players.id'))
-    player = relationship('Player')
-    result = Column(String)  # New column to record game result
+    __tablename__ = 'games'  # Table name in the database
+    id = Column(Integer, primary_key=True)  # Primary key column for game's unique ID
 
+# Define the Move class representing the 'moves' table in the database
 class Move(Base):
-    __tablename__ = 'moves'
-    id = Column(Integer, primary_key=True)
-    game_id = Column(Integer, ForeignKey('games.id'))
-    game = relationship('Game')
-    choice = Column(String)
+    __tablename__ = 'moves'  # Table name in the database
+    id = Column(Integer, primary_key=True)  # Primary key column for move's unique ID
+    player_id = Column(Integer, ForeignKey('players.id'))  # Foreign key referencing the player
+    game_id = Column(Integer, ForeignKey('games.id'))  # Foreign key referencing the game
+    choice = Column(String)  # Column to store the player's choice (rock, paper, scissors)
 
+# Create an SQLite database engine with the name 'game.db'
 engine = create_engine('sqlite:///game.db')
-Base.metadata.create_all(engine)
 
+# Create the database tables based on the class definitions (metadata)
+Base.metadata.create_all(engine)
 
 # Base is a base class provided by SQLAlchemy for declarative class definitions.
 
